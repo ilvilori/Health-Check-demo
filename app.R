@@ -44,9 +44,9 @@ fmt_n    <- function(x) format(round(x), big.mark = ",")
 fmt_dec  <- function(x) formatC(x, format = "f", digits = 2)
 
 # Tamaños (ajústalos aquí si quieres afinarlos)
-ALTO_KPI_V1     <- "65px"   # Vista 1: encabezados
-ALTO_GRAFICO_V1 <- "140px"  # Vista 1: gráficos, a un tercio del alto original
-ALTO_KPI        <- "68px"   # Vista 2: encabezados más chicos, para caber sin scroll
+ALTO_KPI_V1     <- "63px"   # Vista 1: encabezados
+ALTO_GRAFICO_V1 <- "145px"  # Vista 1: gráficos, a un tercio del alto original
+ALTO_KPI        <- "66px"   # Vista 2: encabezados más chicos, para caber sin scroll
 ALTO_GRAFICO    <- "128px"  # Vista 2: gráficos más chicos, para caber sin scroll
 
 css_vista2 <- "
@@ -83,7 +83,7 @@ kpis_vista2 <- function(sufijo = "") {
 # ---------- UI ----------
 ui <- page_navbar(
   title = "Customer Intelligence Scan",
-  theme = bs_theme(bootswatch = "flatly", primary = "#2B5F5A"),
+  theme = bs_theme(bootswatch = "materia", primary = "#2B5F5A"),
   header = tags$head(tags$style(HTML(css_vista2))),
 
   # ===== Vista 1 =====
