@@ -4,7 +4,7 @@
 #
 # Lee data_vista1.xlsx (debe estar en la misma carpeta / repo que este
 # archivo). Cada vista tiene sus propios filtros, así que pueden abrir con
-# valores por defecto distintos.vvv
+# valores por defecto distintos.vvvvv
 
 #shiny::runApp("app.R")
 #install.packages("rsconnect")
