@@ -1,0 +1,12 @@
+name: customer_intelligence_scan
+title: Customer Intelligence Scan
+username: beyondinsights
+account: beyondinsights
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 01a0ea7c-bbce-c42a-ad2a-9ce5fd649579
+bundleId:
+url: https://connect.posit.cloud/beyondinsights/content/01a0ea7c-bbce-c42a-ad2a-9ce5fd649579
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
