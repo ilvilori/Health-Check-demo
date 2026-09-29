@@ -215,14 +215,20 @@ server <- function(input, output, session) {
     plot_ly(d, x = ~Tier) |>
       add_trace(y = ~Ventas, type = "bar", name = "Ventas", marker = list(color = "#1C2D42")) |>
       add_trace(y = ~Margen_USD, type = "bar", name = "Margen", marker = list(color = "#9E9E9E")) |>
-      layout(barmode = "group", yaxis = list(title = "USD"), xaxis = list(title = "Tier"))
+      layout(barmode = "group", yaxis = list(title = "USD"), xaxis = list(title = "Tier")%>%
+               config(
+                 displayModeBar = FALSE
+               ))
   })
 
   output$plot_clientes <- renderPlotly({
     d <- por_tier()
     plot_ly(d, x = ~Tier, y = ~Clientes, type = "bar",
             marker = list(color = paleta_tier[d$Tier])) |>
-      layout(yaxis = list(title = "Clientes"), xaxis = list(title = "Tier"))
+      layout(yaxis = list(title = "Clientes"), xaxis = list(title = "Tier")%>%
+               config(
+                 displayModeBar = FALSE
+               ))
   })
 
   hacer_pie <- function(campo) {
@@ -278,7 +284,10 @@ server <- function(input, output, session) {
       layout(margin = list(t = 8, b = 24, l = 36, r = 8), font = list(size = 10),
              xaxis = list(title = ""),
              yaxis = list(title = "", range = c(0, max(y) * 1.25),
-                          tickformat = if (pct) ".0%" else NULL))
+                          tickformat = if (pct) ".0%" else NULL))%>%
+      config(
+        displayModeBar = FALSE
+      )
     p
   }
 
@@ -302,7 +311,10 @@ server <- function(input, output, session) {
       layout(barmode = "group", margin = list(t = 8, b = 24, l = 36, r = 8),
              font = list(size = 10), xaxis = list(title = ""),
              yaxis = list(title = "", tickformat = ".0%", range = c(0, 1.3)),
-             legend = list(orientation = "h", x = 0, y = 1.2))
+             legend = list(orientation = "h", x = 0, y = 1.2))%>%
+      config(
+        displayModeBar = FALSE
+      )
   })
 
   # ================= Vista 3 =================
@@ -323,7 +335,10 @@ server <- function(input, output, session) {
             text = round(y, 1), textposition = "outside", hoverinfo = "x+text") |>
       layout(margin = list(t = 8, b = 24, l = 36, r = 8), font = list(size = 10),
              xaxis = list(title = ""),
-             yaxis = list(title = "", range = c(0, max(y, na.rm = TRUE) * 1.2)))
+             yaxis = list(title = "", range = c(0, max(y, na.rm = TRUE) * 1.2)))%>%
+      config(
+        displayModeBar = FALSE
+      )
   })
 
   output$cmp_recompra <- renderPlotly({
@@ -335,7 +350,10 @@ server <- function(input, output, session) {
             text = fmt_pct(y), textposition = "outside", hoverinfo = "x+text") |>
       layout(margin = list(t = 8, b = 24, l = 36, r = 8), font = list(size = 10),
              xaxis = list(title = ""),
-             yaxis = list(title = "", tickformat = ".0%", range = c(0, max(y, na.rm = TRUE) * 1.3)))
+             yaxis = list(title = "", tickformat = ".0%", range = c(0, max(y, na.rm = TRUE) * 1.3)))%>%
+      config(
+        displayModeBar = FALSE
+      )
   })
 
   # Cuali_NPS trae palabras/temas separados por coma (a veces por un apóstrofe
@@ -379,7 +397,10 @@ server <- function(input, output, session) {
             text = fmt_pct(y), textposition = "outside", hoverinfo = "x+text") |>
       layout(margin = list(t = 8, b = 24, l = 36, r = 8), font = list(size = 10),
              xaxis = list(title = ""),
-             yaxis = list(title = "", tickformat = ".0%", range = c(0, max(y, na.rm = TRUE) * 1.3)))
+             yaxis = list(title = "", tickformat = ".0%", range = c(0, max(y, na.rm = TRUE) * 1.3)))%>%
+      config(
+        displayModeBar = FALSE
+      )
   }
 
   output$cmp_contactable <- renderPlotly({ barra_pct_tier("Contactable") })
@@ -405,7 +426,10 @@ server <- function(input, output, session) {
              xaxis = list(title = ""),
              yaxis = list(title = "Clientes"),
              yaxis2 = list(title = "% del total", overlaying = "y", side = "right", tickformat = ".0%"),
-             legend = list(orientation = "h", x = 0, y = 1.15))
+             legend = list(orientation = "h", x = 0, y = 1.15))%>%
+      config(
+        displayModeBar = FALSE
+      )
   })
 
   output$cap_ventas <- renderPlotly({
@@ -420,7 +444,10 @@ server <- function(input, output, session) {
              xaxis = list(title = ""),
              yaxis = list(title = "USD"),
              yaxis2 = list(title = "% del total", overlaying = "y", side = "right", tickformat = ".0%"),
-             legend = list(orientation = "h", x = 0, y = 1.15))
+             legend = list(orientation = "h", x = 0, y = 1.15))%>%
+      config(
+        displayModeBar = FALSE
+      )
   })
 
   output$cap_recompra <- renderPlotly({
@@ -431,7 +458,10 @@ server <- function(input, output, session) {
             text = fmt_pct(y), textposition = "outside", hoverinfo = "x+text") |>
       layout(margin = list(t = 8, b = 24, l = 36, r = 8), font = list(size = 10),
              xaxis = list(title = ""),
-             yaxis = list(title = "", tickformat = ".0%", range = c(0, max(y, na.rm = TRUE) * 1.3)))
+             yaxis = list(title = "", tickformat = ".0%", range = c(0, max(y, na.rm = TRUE) * 1.3)))%>%
+      config(
+        displayModeBar = FALSE
+      )
   })
 
 }
